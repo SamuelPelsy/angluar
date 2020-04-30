@@ -1,0 +1,29 @@
+<h1>That's my burger list babe !</h1>
+
+<div *ngFor="let myBurger of burgers">
+  <!-- IMAGE du burger-->
+  <div>
+    <img height="150" src="{{myBurger.image}}"/>
+  </div>
+
+  <!-- ID du burger-->
+  <div>
+    <span>
+      id: {{myBurger.id}}
+    </span>
+  </div>
+
+  <!-- NOM du burger -->
+  <div>
+    <span>
+      nom: {{myBurger.name}}
+    </span>
+  </div>
+
+  <!-- PRIX du burger -->
+  <div>
+    <span>
+      prix: {{myBurger.price}} $
+    </span>
+  </div>
+</div>
