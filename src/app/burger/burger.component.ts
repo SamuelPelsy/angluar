@@ -10,7 +10,7 @@ import { Burger } from '../swagger/model/models';
 })
 export class BurgerComponent implements OnInit {
   //Attributs
-
+  
   //Constructeur
   constructor() { 
   }
