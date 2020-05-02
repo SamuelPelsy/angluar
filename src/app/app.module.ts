@@ -6,20 +6,32 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiModule } from './swagger/api.module';
-import { BurgerComponent } from './burger/burger.component';
-import { BurgerListComponent } from './burger-list/burger-list.component'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { BurgerListComponent } from './burger-list/burger-list.component';
+import { BurgerDetailComponent } from './burger-detail/burger-detail.component'; 
+
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BurgerComponent,
-    BurgerListComponent
+    BurgerListComponent,
+    BurgerDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ApiModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

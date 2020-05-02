@@ -1,0 +1,35 @@
+<mat-grid-list cols="3">
+  <mat-grid-tile [colspan] = "3" [rowspan] = "1">
+    <mat-card *ngIf="_myBurger">
+      <div>
+        <button mat-stroked-button routerLink="/burger-list" routerLinkActive="active">< Retour</button>
+      </div>
+      <mat-card-header>
+        <mat-card-title>
+          Détail - {{_myBurger.name}}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img width="250" height="200" src="{{_myBurger.image}}"/>
+        <div>
+          <button mat-stroked-button>id: {{_myBurger.id}}</button>
+        </div>
+        <div>
+          <button mat-stroked-button>prix: {{_myBurger.price}} $</button>
+        </div>
+        <div>
+          <button mat-stroked-button>nutriscore: {{_myBurger.nutriscore}}</button>
+        </div>
+        <div>
+          Nutriments:
+        </div>
+        <div *ngIf="_myBurger.nutriments.energyKcal">
+          <button mat-stroked-button>{{_myBurger.nutriments.energyKcal}} Kcal</button>
+        </div>
+        <div *ngIf="_myBurger.nutriments.saturatedFat">
+          <button mat-stroked-button>{{_myBurger.nutriments.saturatedFat}}% Gras saturé</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

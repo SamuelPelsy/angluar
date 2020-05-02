@@ -1,29 +1,21 @@
 <h1>That's my burger list babe !</h1>
 
-<div *ngFor="let myBurger of burgers">
-  <!-- IMAGE du burger-->
-  <div>
-    <img height="150" src="{{myBurger.image}}"/>
-  </div>
-
-  <!-- ID du burger-->
-  <div>
-    <span>
-      id: {{myBurger.id}}
-    </span>
-  </div>
-
-  <!-- NOM du burger -->
-  <div>
-    <span>
-      nom: {{myBurger.name}}
-    </span>
-  </div>
-
-  <!-- PRIX du burger -->
-  <div>
-    <span>
-      prix: {{myBurger.price}} $
-    </span>
-  </div>
-</div>
+<section *ngIf="_burgers">
+  <mat-grid-list cols="6">
+    <mat-grid-tile [colspan] = "2" [rowspan] = "2"  *ngFor="let myBurger of _burgers">
+      <mat-card routerLink="/burger/{{myBurger.id}}" routerLinkActive="active">
+        <mat-card-header>
+          <mat-card-title>
+            {{myBurger.id}} - {{myBurger.name}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img width="250" height="200" src="{{myBurger.image}}"/>
+          <div>
+            <button mat-stroked-button>{{myBurger.price}} $</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>

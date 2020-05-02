@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { BurgersService } from '../swagger/api/burgers.service';
 import { Burger } from '../swagger/model/models';
 
@@ -11,9 +11,11 @@ import { Burger } from '../swagger/model/models';
 export class BurgerListComponent implements OnInit {
 
   //Variable dans laquelle tous les burgers iront
-  burgers;
+  _burgers;
   //On donne à notre composant l'api burger
-  constructor(private burgersService : BurgersService) { }
+  constructor(
+    private burgersService : BurgersService,
+    private route: ActivatedRoute) { }
 
   //Lorsque le composant s'init
   ngOnInit(): void {
@@ -23,8 +25,7 @@ export class BurgerListComponent implements OnInit {
 
   //Fonction de récupération des burgers
   getBurgers() : void {
-    this.burgers = this.burgersService.listBurgers()
-      .subscribe(burgers => this.burgers = burgers)
+    this.burgersService.listBurgers()
+      .subscribe(burgers => this._burgers = burgers)
   }
-
 }
